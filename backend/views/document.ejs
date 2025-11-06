@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/estilos.css">
+  <title>Documentación de la API</title>
+</head>
+<body>
+  <h1>Documentación de la API</h1>
+  <hr>
+  <h2>Requerimiento 1. Documentación de usuario</h2>
+  <hr>
+  <h3>Auntenticar usuarios</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Auntenticar usuarios</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/auth</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite listar los usuarios registrados en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>POST</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador, Operario, Instructor, Aprendiz</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN json</td>
+      <td>{'login':'jv1424937@gmail.com','password':'jv1234'}</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "user": [
+            {
+              "identificacion": 1004738034,
+              "nombre": "Jose Velez",
+              "email": "jv1424937@gmail.com",
+              "rol": "Administrador"
+            }
+          ],
+          "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+          "msg": "Usuario autorizado."
+        } <br />
+        Incorrecto:
+        Status: 404
+        body: {
+          status: 404,
+          msg: "Usuarios incorrecto"
+        }<br />
+        Incorrecto:
+        Status: 404
+        body: {
+          status: 404,
+          msg: "Contraseña incorrecta"
+        }<br />
+        Incorrecto:
+        Status: 404
+        body: {
+          status: 404,
+          msg: "Se requiere el token"
+        }<br />
+        Incorrecto:
+        Status: 404
+        body: {
+          status: 404,
+          msg: "Token incorrecto"
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          "status":500,"msg":e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Registrar usuarios</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Registrar usuarios</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/usuario</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite registrar usuarios en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>POST</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>{"identificacion":1004738034,"nombre"; "jose  Velez","image":"file","telefono":"3229499135","email":"jv1424937@gmail.com","password":'jv1234',"rol": "Administrador"}</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "msg": "Se registró con éxito el usuario"
+        } <br />
+        Incorrecto:
+        Status: 404
+        body: {
+          status: 404,
+          msg: "No se pudo registrar el usuario"
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          "status":500,"msg":"Error al registrar uauario: "+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Listar usuarios</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Listar usuario</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/usuario</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite listar los usuarios registrados en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        [
+          {
+            "identificacion": 4544646,
+            "nombre": "Rosa Muñoz",
+            "image": "IMG_20191206_115956.jpg",
+            "Telefono": "3206674897",
+            "email": "rosaelenamunoz@gmail.com",
+            "password": "$2b$08$PFv/8psg7jlZcZbnXJ9ws.D6Y.dqWkfX6rUR79hllsJB.I4XhjgKO",
+            "rol": "Aprendiz",
+            "fecha_creacion": "2025-10-30T08:39:19.000Z"
+          },
+          {
+            "identificacion": 5663653,
+            "nombre": "Pedro Velez",
+            "image": "IMG_20230723_181825_293.jpg",
+            "Telefono": "3117468516",
+            "email": "pedroarturovelezmunoz@gmail.com",
+            "password": "$2b$08$eMxKT4nK7EH7YGg8x9bjdehIvG0GXsjIkJ8FknJvMsHFkShA6xvJO",
+            "rol": "Instructor",
+            "fecha_creacion": "2025-10-30T00:55:20.000Z"
+          },
+          {
+            "identificacion": 1004738034,
+            "nombre": "Jose Velez",
+            "image": "foto-aprendiz.png",
+            "Telefono": "3229499135",
+            "email": "jv1424937@gmail.com",
+            "password": "$2a$08$yeNnSgut1fEYWBvB7NF9oONs2eDk8Yz28LxP8oBmjQo0DEPu3FsUW",
+            "rol": "Administrador",
+            "fecha_creacion": "2025-09-30T07:16:18.000Z"
+          }
+        ]<br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No hay usuarios registrados...!!!"
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:"Error: "+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Buscar usuario</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Buscar usuario</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/usuario/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite listar un usuario registrado en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador, Operario, Instructor, Aprendiz</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>("id":1004738034)</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "identificacion": 1004738034,
+          "nombre": "Jose Velez",
+          "image": "foto-aprendiz.png",
+          "Telefono": "3229499135",
+          "email": "jv1424937@gmail.com",
+          "password": "$2a$08$yeNnSgut1fEYWBvB7NF9oONs2eDk8Yz28LxP8oBmjQo0DEPu3FsUW",
+          "rol": "Administrador",
+          "fecha_creacion": "2025-09-30T07:16:18.000Z"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No se encontró ningún usuario con ese ID 1004738034"
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:"Error del servidor al intentar buscar el usuario."+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Eliminar usuario</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Eliminar usuario</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/usuario/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite eliminar un usuario registrado en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>DELETE</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>("id":1004738034)</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "msg": "Se eliminó el usuario con el ID: 1004738034"
+        } <br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No se encontró el usuario con el ID:  1004738034"
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:'Error: '+error.message
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Actualizar usuario</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Actualizar usuario</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/usuario/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite actualizar un usuario registrado en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>PUT</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>("id":1004738034)</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "msg": "El usuario fue actualizado correctamente."
+        } <br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No se encontró el usuario con el ID: 1004738034"
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:"Error del servidor al intentar editar el usuario."+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Actualizar datos del usuario</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Actualizar datos del usuario</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/usuario-data/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite actualizar los datos de un usuario que este registrado en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>PUT</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador, Operario, Instructor, Aprendiz</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>("id":1004738034)</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "msg": "Los datos del usuario fue actualizado correctamente."
+        } <br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No se encontró el usuario con el ID: 1004738034"
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:"Error del servidor."+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Actualizar contraseña del usuario</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Actualizar contraseña del usuario</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/usuario-password/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite actualizar la contraseña de un usuario que este registrado en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>PUT</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador, Operario, Instructor, Aprendiz</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>("id":1004738034)</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "msg": "La contraseña del usuario fue actualizado correctamente."
+        } <br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No se encontró el usuario con el ID: 1004738034"
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:"Error del servidor."+e
+        }
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
