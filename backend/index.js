@@ -2,10 +2,12 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 
-import routerUsuario from './src/router/routerUsuario.js';
 import autRouter from './src/router/router.autentication.js';
-import rutaJuego from './src/router/router.juego.js';
+import routerUsuario from './src/router/routerUsuario.js';
+import routerCategoria from './src/router/routerCategorias.js';
 import routerAreas from './src/router/routerAreas.js';
+import routerAmbientes from './src/router/routerAmbientes.js';
+import routerEquipos from './src/router/routerEquipos.js';
 
 const servidor = express();
 
@@ -23,8 +25,10 @@ servidor.get('/documents',(req, res)=>{
 servidor.use(cors());
 
 servidor.use('/api', routerUsuario);
+servidor.use('/api', routerCategoria);
 servidor.use('/api', routerAreas);
-servidor.use('/juego',rutaJuego);
+servidor.use('/api', routerAmbientes);
+servidor.use('/api', routerEquipos);
 servidor.use(autRouter);
 
 servidor.listen(4001,()=>{
