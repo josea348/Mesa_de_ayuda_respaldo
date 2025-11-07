@@ -54,10 +54,10 @@
           "status": 200,
           "user": [
             {
-              "identificacion": 1004738034,
-              "nombre": "Jose Velez",
-              "email": "jv1424937@gmail.com",
-              "rol": "Administrador"
+              "identificacion": 1004738034, 
+              "nombre": "Jose Velez", 
+              "email": "jv1424937@gmail.com", 
+              "rol": "Administrador" 
             }
           ],
           "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
@@ -76,15 +76,15 @@
           msg: "Contraseña incorrecta"
         }<br />
         Incorrecto:
-        Status: 404
+        Status: 400
         body: {
-          status: 404,
+          status: 400,
           msg: "Se requiere el token"
         }<br />
         Incorrecto:
-        Status: 404
+        Status: 400
         body: {
-          status: 404,
+          status: 400,
           msg: "Token incorrecto"
         }<br />
         Error: 
@@ -141,6 +141,18 @@
           "msg": "Se registró con éxito el usuario"
         } <br />
         Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
         Status: 404
         body: {
           status: 404,
@@ -149,7 +161,7 @@
         Error: 
         status: 500,
         body:{
-          "status":500,"msg":"Error al registrar uauario: "+e
+          "status":500,"msg":"Error al registrar usuario: "+e
         }
       </td>
     </tr>
@@ -228,6 +240,18 @@
           }
         ]<br />
         Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
         status: 404,
         Status:{
           status: 404,
@@ -275,7 +299,7 @@
     </tr>
     <tr>
       <td>PETICIÓN BODY</td>
-      <td>("id":1004738034)</td>
+      <td>NULL</td>
     </tr>
     <tr>
       <td>REPUESTA JSON</td>
@@ -293,10 +317,22 @@
           "fecha_creacion": "2025-09-30T07:16:18.000Z"
         }<br />
         Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
         status: 404,
         Status:{
           status: 404,
-          msg: "No se encontró ningún usuario con ese ID 1004738034"
+          msg: "No se encontró ningún usuario con ese ID "
         }<br />
         Error: 
         status: 500,
@@ -340,7 +376,7 @@
     </tr>
     <tr>
       <td>PETICIÓN BODY</td>
-      <td>("id":1004738034)</td>
+      <td>NULL</td>
     </tr>
     <tr>
       <td>REPUESTA JSON</td>
@@ -349,13 +385,25 @@
         Status: 200
         body: {
           "status": 200,
-          "msg": "Se eliminó el usuario con el ID: 1004738034"
+          "msg": "Se eliminó el usuario con la identificacion: "
         } <br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
         Incorrecto:
         status: 404,
         Status:{
           status: 404,
-          msg: "No se encontró el usuario con el ID:  1004738034"
+          msg: "No se encontró el usuario con la identificacion: "
         }<br />
         Error: 
         status: 500,
@@ -399,7 +447,7 @@
     </tr>
     <tr>
       <td>PETICIÓN BODY</td>
-      <td>("id":1004738034)</td>
+      <td>{"identificacion":1004738034,"nombre"; "Jose A Velez","image":"file","telefono":"3229499135","email":"jv1424937@gmail.com","password":'jv1234',"rol": "Administrador"}</td>
     </tr>
     <tr>
       <td>REPUESTA JSON</td>
@@ -411,10 +459,22 @@
           "msg": "El usuario fue actualizado correctamente."
         } <br />
         Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
         status: 404,
         Status:{
           status: 404,
-          msg: "No se encontró el usuario con el ID: 1004738034"
+          msg: "No se encontró el usuario con la identificacion: "
         }<br />
         Error: 
         status: 500,
@@ -458,7 +518,7 @@
     </tr>
     <tr>
       <td>PETICIÓN BODY</td>
-      <td>("id":1004738034)</td>
+      <td>{"nombre"; "Jose Alejandro Velez","image":"file","telefono":"3229499135","email":"jv1424937@gmail.com"}</td>
     </tr>
     <tr>
       <td>REPUESTA JSON</td>
@@ -470,10 +530,22 @@
           "msg": "Los datos del usuario fue actualizado correctamente."
         } <br />
         Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
         status: 404,
         Status:{
           status: 404,
-          msg: "No se encontró el usuario con el ID: 1004738034"
+          msg: "No se encontró el usuario con la identificacion: "
         }<br />
         Error: 
         status: 500,
@@ -517,7 +589,7 @@
     </tr>
     <tr>
       <td>PETICIÓN BODY</td>
-      <td>("id":1004738034)</td>
+      <td>("password":jv123456)</td>
     </tr>
     <tr>
       <td>REPUESTA JSON</td>
@@ -529,10 +601,1144 @@
           "msg": "La contraseña del usuario fue actualizado correctamente."
         } <br />
         Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
         status: 404,
         Status:{
           status: 404,
-          msg: "No se encontró el usuario con el ID: 1004738034"
+          msg: "No se encontró el usuario con la identificacion: "
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:"Error del servidor."+e
+        }
+      </td>
+    </tr>
+  </table>
+
+
+  <br><br><hr>
+  <h2>Requerimiento 2. Documentación de categorías</h2>
+  <hr>
+  <h3>Registrar categorías</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Registrar categorías</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/area</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite registrar areas en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>POST</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>{"nombre": "Infraestructura", "descripcion": "Reportes relacionados con mantenimiento, fallas eléctricas, daños estructurales o limpieza en los ambientes."}</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "msg": "Se registró con éxito el categoría."
+        } <br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        Status: 404
+        body: {
+          status: 404,
+          msg: "No se pudo registrar el categoría."
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          "status":500,"msg":"Error al registrar: "+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Listar categorías</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Listar categorías</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/area</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite listar las categorías que estan registrados en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador, Operario, Instructor, Aprendiz</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: [
+          {
+            "id": 1,
+            "nombre": "Infraestructura",
+            "descripción": "Reportes relacionados con mantenimiento, fallas eléctricas, daños estructurales o limpieza en los ambientes.",
+            "fecha_registro": "2025-11-06T23:09:47.000Z",
+            "fecha_actualizacion": "2025-11-06T23:09:47.000Z"
+          },
+          {
+            "id": 2,
+            "nombre": "Equipos de Cómputo",
+            "descripción": "Incidencias o solicitudes relacionadas con computadores, impresoras, monitores y periféricos.",
+            "fecha_registro": "2025-11-06T23:12:45.000Z",
+            "fecha_actualizacion": "2025-11-06T23:12:45.000Z"
+          }
+        ]<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status: {
+          "status": 404,
+          "msg": "No hay categorías registradas."
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:"Error: "+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Buscar categorias</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Buscar categorias</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/categoria/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite listar una categoria registrada en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador, Operario, Instructor, Aprendiz</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "id": 3,
+          "nombre": "Red y Conectividad",
+          "descripción": "Problemas o solicitudes relacionados con internet, cableado de red, routers o conexiones inalámbricas.",
+          "fecha_registro": "2025-11-06T23:20:44.000Z",
+          "fecha_actualizacion": "2025-11-06T23:20:44.000Z"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status: {
+          "status": 404,
+          "msg": "No se encontró ninguna categoría con el ID "
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:"Error del servidor."+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Eliminar categorías</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Eliminar categorías</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/categoria/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite eliminar una categoría registrada en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>DELETE</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "msg": "Se eliminó el categoría."
+        } <br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status: {
+          "status": 404,
+          "msg": "No se encontró el categoría con el ID: "
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:'Error: '+error.message
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Actualizar categorías</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Actualizar categorías</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/categoria/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite actualizar una categoría que esta registrado en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>PUT</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>{"nombre": "Red y Conectividad", "descripcion": "Problemas o solicitudes relacionados con internet, cableado de red, routers o conexiones inalámbricas."}</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "message": "El categoría fue actualizado correctamente."
+        } <br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          "status": 404,
+          "message": "No se encontró el categoría con el ID: "
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:"Error del servidor."+e
+        }
+      </td>
+    </tr>
+  </table>
+
+
+  <br><br><hr>
+  <h2>Requerimiento 3. Documentación de areas</h2>
+  <hr>
+  <h3>Registrar areas</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Registrar areas</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/area</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite registrar areas en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>POST</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>{"nombre": "Ambiental", "descripcion": "Area para el medio ambiente"}</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "msg": "Se registró con éxito el area"
+        } <br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        Status: 404
+        body: {
+          status: 404,
+          msg: "No se pudo registrar el area"
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          "status":500,"msg":"Error al registrar: "+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Listar areas</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Listar area</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/area</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite listar las areas que estan registrados en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador, Operario, Instructor, Aprendiz</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: [
+          {
+            "id": 1,
+            "nombre": "Tic",
+            "descripción": "Area de tecnologia",
+            "fecha_creacion": "2025-11-06T14:02:08.000Z"
+          },
+          {
+            "id": 2,
+            "nombre": "Ambiental",
+            "descripción": "Area para el medio ambiente",
+            "fecha_creacion": "2025-11-06T14:03:12.000Z"
+          }
+        ]<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No hay areas registradas...!!!"
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:"Error: "+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Buscar area</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Buscar area</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/area/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite listar un area registrada en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador, Operario, Instructor, Aprendiz</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "id": 2,
+          "nombre": "Ambiental",
+          "descripción": "Area para el medio ambiente",
+          "fecha_creacion": "2025-11-06T14:03:12.000Z"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No se encontró ningún area con ese ID "
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:"Error del servidor."+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Eliminar areas</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Eliminar areas</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/area/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite eliminar un area registrada en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>DELETE</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "msg": "Se eliminó el area"
+        } <br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No se encontró el area con el ID: "
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:'Error: '+error.message
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Actualizar areas</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Actualizar areas</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/area/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite actualizar un area que esta registrado en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>PUT</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>{"nombre": "Ambiental", "descripcion": "Area de enseñanza para el medio ambiente"}</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "message": "El area fue actualizado correctamente."
+        } <br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No se encontró el area con el ID: "
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:"Error del servidor."+e
+        }
+      </td>
+    </tr>
+  </table>
+
+
+  <br><br><hr>
+  <h2>Requerimiento 4. Documentación de ambientes</h2>
+  <hr>
+  <h3>Registrar ambientes</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Registrar ambientes</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/ambiente</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite registrar los ambientes en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>POST</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>{"nombre": "Ambiente y14",	"ubicacion": "En las tics cerca de al ambiental por los lados del porton de arriba","capacidad": 32, "estado": "Disponible", "areaId": 1}</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "msg": "Se registró con éxito el ambiente"
+        } <br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        Status: 404
+        body: {
+          status: 404,
+          msg: "No se pudo registrar el ambiente"
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          "status":500,"msg":"Error al registrar: "+e.message
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Listar ambientes</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Listar ambientes</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/ambiente</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite listar los ambientes que estan registrados en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador, Operario, Instructor, Aprendiz</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        Body: [
+          {
+            "id": 1,
+            "nombre": "Ambiente y14",
+            "ubicación": "En las tics cerca de al ambiental por los lados del porton de arriba",
+            "capacidad": 32,
+            "estado": "Disponible",
+            "area_id": 1,
+            "fecha_creacion": "2025-11-06T14:06:59.000Z"
+          },
+          {
+            "id": 2,
+            "nombre": "Ambiente y15",
+            "ubicación": "En ambiental cerca de las tics por los lados del p",
+            "capacidad": 30,
+            "estado": "Disponible",
+            "area_id": 2,
+            "fecha_creacion": "2025-11-06T16:23:06.000Z"
+          }
+        ]<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No hay ambientes registradas."
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:"Error: "+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Buscar ambiente</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Buscar ambiente</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/ambiente/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite listar un ambiente registrado en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador, Operario, Instructor, Aprendiz</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "id": 1,
+          "nombre": "Ambiente y14",
+          "ubicación": "En las tics cerca de al ambiental por los lados del porton de arriba",
+          "capacidad": 32,
+          "estado": "Disponible",
+          "area_id": 1,
+          "fecha_creacion": "2025-11-06T14:06:59.000Z"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No se encontró ningún ambiente con ese ID "
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:"Error del servidor."+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Eliminar ambientes</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Eliminar ambientes</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/ambiente/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite eliminar un ambiente que este registrado en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>DELETE</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "msg": "Se eliminó el ambiente"
+        } <br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No se encontró el ambiente con el ID: "
+        }<br />
+        Error: 
+        status: 500,
+        body:{
+          status:500,msg:'Error: '+error.message
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Actualizar ambientes</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Actualizar ambiente</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/ambiente/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite actualizar un ambiente registrado en la base de datos</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>PUT</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>{"nombre": "Ambiente y14",	"ubicacion": "En las tics cerca de al ambiental por los lados del porton de arriba","capacidad": 32, "estado": "Disponible", "areaId": 1}</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        body: {
+          "status": 200,
+          "msg": "El ambiente fue actualizado correctamente."
+        } <br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No se encontró el ambiente con el ID: "
         }<br />
         Error: 
         status: 500,
