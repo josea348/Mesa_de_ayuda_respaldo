@@ -136,9 +136,9 @@ export const borrarUsuario= async (req,res) => {
         let sql = 'DELETE FROM usuarios WHERE identificacion=?';
         const [result] = await pool.query(sql, [idUsuario]);
         if(result.affectedRows>0) {
-            res.status(200).json({'status':200,msg:'Se eliminó el usuario con el ID: '+idUsuario});
+            res.status(200).json({'status':200,msg:'Se eliminó el usuario con la identificacion: '+idUsuario});
         }else{
-            res.status(404).json({'status':404,msg:'No se encontró el usuario con el ID: '+idUsuario});
+            res.status(404).json({'status':404,msg:'No se encontró el usuario con la identificacionID: '+idUsuario});
         }
     } catch (error) {
         res.status(500).json({'status':500,msg:'Error: '+error.message});
@@ -189,7 +189,7 @@ export const actualizarUsuario = async (req, res) => {
         } else {
                res.status(404).json({
                    'status': 404,
-                   'msg': `No se encontró el usuario con el ID: ${id}`
+                   'msg': `No se encontró el usuario con la identificacion: ${id}`
                });
         }
     } catch (e) {
@@ -232,12 +232,12 @@ export const actualizarDatosUsuario = async (req, res) => {
         } else {
                res.status(404).json({
                    'status': 404,
-                   'msg': `No se encontró el usuario con el ID: ${id}`
+                   'msg': `No se encontró el usuario con la identificacion: ${id}`
                });
         }
     } catch (e) {
         console.log('Error del sistema'+e);
-        res.status(500).json({'status': 500, msg: 'Error del servidor al intentar editar el usuario.'+e});
+        res.status(500).json({'status': 500, msg: 'Error del servidor.'+e});
     }
 }
 
@@ -269,7 +269,7 @@ export const actualizarContrasenaUsuario = async (req, res) => {
         } else {
                res.status(404).json({
                    'status': 404,
-                   'msg': `No se encontró el usuario con el ID: ${id}`
+                   'msg': `No se encontró el usuario con la identificacion: ${id}`
                });
         }
     } catch (e) {

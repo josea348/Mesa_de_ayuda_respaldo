@@ -1,8 +1,14 @@
 import { pool } from "../database/conexion.js";
+import { validationResult } from "express-validator";
 import bcrypt from 'bcrypt';
 import Jwt from "jsonwebtoken";
 
 export const validarUser = async (req,res) => {
+    const errors = validationResult(req);
+    if(!errors.isEmpty()){
+        return res.status(400).json(errors);
+    }
+
     try {
         let { login, password } = req.body;
         let sql = `SELECT identificacion,nombre,email,rol,password FROM usuarios WHERE email=?`;

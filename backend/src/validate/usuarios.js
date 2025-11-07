@@ -54,11 +54,10 @@ export const validarActualizacionUsuario = [
     .isEmail().withMessage('Debe ingresar un email válido')
     .normalizeEmail(),
   
-  check('password')
+  /* check('password')
     .notEmpty().withMessage('La contraseña es obligatoria')
     .isLength({ min: 6 }).withMessage('La contraseña debe tener al menos 6 caracteres')
-    .matches(/\d/).withMessage('La contraseña debe contener al menos un número')
-    .matches(/[A-Z]/).withMessage('La contraseña debe contener al menos una letra mayúscula'),
+    .matches(/\d/).withMessage('La contraseña debe contener al menos un número'), */
   
   check('rol')
     .notEmpty().withMessage('El rol es obligatorio')
