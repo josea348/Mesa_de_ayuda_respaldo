@@ -8,7 +8,7 @@ export const validarAmbiente = [
   check('ubicacion')
     .notEmpty().withMessage('La ubicación es obligatoria')
     .isLength({ min: 10, max: 100 }).withMessage('El nombre debe tener entre 10 y 100 caracteres')
-    .matches(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/).withMessage('La ubicaión solo debe contener letras y espacios'),
+    .matches(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s.,;]+$/).withMessage('La ubicaión solo debe contener letras y espacios'),
 
   check('capacidad')
     .notEmpty().withMessage('La capacidad es obligatoria')

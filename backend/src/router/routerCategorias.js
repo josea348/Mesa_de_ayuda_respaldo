@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { actualizarCategoria, borrarCategoria, getCategorias, getCategoriaId, registrarCategoria } from "../controllers/controllerCategorias.js";
 import { validarToken } from "../controllers/autentication.js";
-import { validarCategoria, validarId } from "../validate/Categorias.js";
+import { validarCategoria, validarId } from "../validate/categorias.js";
 const routerCategoria = Router();
 
 routerCategoria.get('/Categoria', validarToken, getCategorias);

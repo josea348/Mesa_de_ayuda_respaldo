@@ -10,7 +10,7 @@ export const validarUsuario = [
   check('nombre')
     .notEmpty().withMessage('El nombre es obligatorio')
     .isLength({ min: 3, max: 50 }).withMessage('El nombre debe tener entre 3 y 50 caracteres')
-    .matches(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/).withMessage('El nombre solo debe contener letras y espacios'),
+    .matches(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s.,;]+$/).withMessage('El nombre solo debe contener letras y espacios'),
   
   check('telefono')
     .notEmpty().withMessage('El teléfono es obligatorio')
@@ -42,7 +42,7 @@ export const validarActualizacionUsuario = [
   check('nombre')
     .notEmpty().withMessage('El nombre es obligatorio')
     .isLength({ min: 5, max: 50 }).withMessage('El nombre debe tener entre 5 y 50 caracteres')
-    .matches(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/).withMessage('El nombre solo debe contener letras y espacios'),
+    .matches(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s.,;]+$/).withMessage('El nombre solo debe contener letras y espacios'),
   
   check('telefono')
     .notEmpty().withMessage('El teléfono es obligatorio')
@@ -68,7 +68,7 @@ export const validarActualizacionDatosUsuario = [
   check('nombre')
     .notEmpty().withMessage('El nombre es obligatorio')
     .isLength({ min: 5, max: 50 }).withMessage('El nombre debe tener entre 5 y 50 caracteres')
-    .matches(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/).withMessage('El nombre solo debe contener letras y espacios'),
+    .matches(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s.,;]+$/).withMessage('El nombre solo debe contener letras y espacios'),
   
   check('telefono')
     .notEmpty().withMessage('El teléfono es obligatorio')

@@ -1,6 +1,6 @@
-DROP DATABASE gestion_ambientes;
-CREATE DATABASE gestion_ambientes;
-USE gestion_ambientes;
+DROP DATABASE help_desk;
+CREATE DATABASE help_desk;
+USE help_desk;
 
 CREATE TABLE usuarios (
   identificacion int(11) NOT NULL PRIMARY KEY,
@@ -13,15 +13,6 @@ CREATE TABLE usuarios (
   fecha_registro timestamp NOT NULL DEFAULT current_timestamp(),
   fecha_actualizacion timestamp on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
-
-INSERT INTO usuarios(identificacion,nombre,image,Telefono,email,password,rol) values
-(1004738034,'Jose Velez','foto-aprendiz.png','3229499135','jv1424937@gmail.com','$2b$08$RJIPm8T2EMNuq8Fg6c/W4O68ZISgFoGZRZNrLF3xGA6V8QFtecT0e','Administrador'),
-(44254252,'Ana Velez','IMG_20210323_113542_037.jpg','3227675683','avelezmunoz@gmail.com','$2b$08$hgF9nQdbo6chKmGfazChxuT5dPZS5JwXjMzxA5ZyDYj3GB0Yjhday','Instructor'),
-(4544646,'Rosa Muñoz','IMG_20191206_115956.jpg','3206674897','rosaelenamunoz@gmail.com','$2b$08$PFv/8psg7jlZcZbnXJ9ws.D6Y.dqWkfX6rUR79hllsJB.I4XhjgKO','Aprendiz'),
-(5663653,'Pedro Velez','IMG_20230723_181825_293.jpg','3117468516','pedroarturovelezmunoz@gmail.com','$2b$08$eMxKT4nK7EH7YGg8x9bjdehIvG0GXsjIkJ8FknJvMsHFkShA6xvJO','Instructor'),
-(654767647,'Lupe Aguirre','IMG_20210619_110929_102.jpg','6564648646','lupe@gmail.com','$2b$08$R/hAskraBSsGYHYP9R300uU7laqj136wrVJIsFr7c7mpGB5JJ1Y1u','Aprendiz');
-
-UPDATE usuarios SET nombre='Jose Alejandro Velez' WHERE identificacion=1004738034;
 
 CREATE TABLE categorías (
   id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -76,7 +67,7 @@ CREATE TABLE reservas_ambiente (
   ambiente_id int(11) NOT NULL,
   fecha_inicio date NOT NULL,
   fecha_fin date NOT NULL,
-  estado enum('Pendiente','Confirmado','Cancelada','completada') NOT NULL,
+  estado enum('Pendiente','Confirmado','Cancelada','Completada') NOT NULL,
   fecha_registro timestamp NOT NULL DEFAULT current_timestamp(),
   fecha_actualizacion timestamp on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
