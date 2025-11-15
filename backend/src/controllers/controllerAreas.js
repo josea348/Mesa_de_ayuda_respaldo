@@ -52,7 +52,7 @@ export const registrarArea = async (req, res) => {
     }
 
     const { nombre, descripcion } = req.body;
-    let sql = `INSERT INTO areas(nombre,descripción) values (?,?)`;
+    let sql = `INSERT INTO areas(nombre,descripcion) values (?,?)`;
     const [rows] = await pool.query(sql, [nombre, descripcion]);
     if (rows.affectedRows > 0) {
       res.status(200).json({ 'status': 200, 'msg': 'Se registró con éxito el area' });
@@ -101,7 +101,7 @@ export const actualizarArea = async (req, res) => {
     const { id } = req.params;
     const { nombre, descripcion } = req.body;
     let sql, params;
-    sql = 'UPDATE areas SET nombre=?, descripción=? WHERE id = ?';
+    sql = 'UPDATE areas SET nombre=?, descripcion=? WHERE id = ?';
     params = [nombre, descripcion, id];
     const [result] = await pool.query(sql, params);
 

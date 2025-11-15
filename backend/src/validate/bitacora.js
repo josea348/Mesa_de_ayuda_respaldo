@@ -1,7 +1,7 @@
 import { check } from "express-validator";
 
 export const validarBitacora = [
-  check('acción')
+  check('accion')
     .notEmpty().withMessage('La acción es obligatoria')
     .isLength({ min: 3, max: 100 }).withMessage('La acción debe tener entre 3 y 100 caracteres')
     .matches(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s,.-]+$/).withMessage('La acción solo debe contener letras, números, espacios y signos básicos'),

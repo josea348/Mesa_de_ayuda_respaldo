@@ -14,10 +14,10 @@ CREATE TABLE usuarios (
   fecha_actualizacion timestamp on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE categorías (
+CREATE TABLE categorias (
   id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre varchar(50) NOT NULL,
-  descripción text DEFAULT NULL,
+  descripcion text DEFAULT NULL,
   fecha_registro timestamp NOT NULL DEFAULT current_timestamp(),
   fecha_actualizacion timestamp on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -25,14 +25,14 @@ CREATE TABLE categorías (
 CREATE TABLE areas (
   id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre varchar(50) NOT NULL,
-  descripción text DEFAULT NULL,
+  descripcion text DEFAULT NULL,
   fecha_creacion timestamp NOT NULL DEFAULT current_timestamp()
 );
 
 CREATE TABLE ambiente (
   id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   nombre varchar(50) NOT NULL,
-  ubicación varchar(100) NOT NULL,
+  ubicacion varchar(100) NOT NULL,
   capacidad int(11) NOT NULL,
   estado enum('Disponible','Ocupado','Mantenimiento') DEFAULT 'disponible',
   area_id int(11) DEFAULT NULL,
@@ -109,9 +109,9 @@ CREATE TABLE encuesta_satisfaccion (
   fecha_actualizacion timestamp on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE bitácora (
+CREATE TABLE bitacora (
   id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  acción varchar(100) NOT NULL,
+  accion varchar(100) NOT NULL,
   detalles text DEFAULT NULL,
   usuario_id int(11) NOT NULL,
   ticket_id int(11) NOT NULL,
@@ -144,7 +144,7 @@ ALTER TABLE equipos
 ALTER TABLE tickets
   ADD CONSTRAINT tickets_1 FOREIGN KEY (solicitante) REFERENCES usuarios(identificacion) ON DELETE CASCADE,
   ADD CONSTRAINT tickets_2 FOREIGN KEY (asignado) REFERENCES usuarios(identificacion) ON DELETE CASCADE,
-  ADD CONSTRAINT tickets_3 FOREIGN KEY (categoria) REFERENCES categorías(id) ON DELETE CASCADE;
+  ADD CONSTRAINT tickets_3 FOREIGN KEY (categoria) REFERENCES categorias(id) ON DELETE CASCADE;
 
   -- ADD CONSTRAINT tickets_4 FOREIGN KEY (id_objetivo) REFERENCES ambiente(id) ON DELETE CASCADE,
   -- ADD CONSTRAINT tickets_5 FOREIGN KEY (id_objetivo) REFERENCES equipos(id) ON DELETE CASCADE;
@@ -163,7 +163,7 @@ ALTER TABLE notifica_reserva_ambiente
 ALTER TABLE notifica_reserva_equipo
   ADD CONSTRAINT notifica_reservas_equipo_1 FOREIGN KEY (res_equipo_id) REFERENCES reservas_equipo(id) ON DELETE CASCADE;
 
-ALTER TABLE bitácora
+ALTER TABLE bitacora
   ADD CONSTRAINT bitácora_1 FOREIGN KEY (usuario_id) REFERENCES usuarios(identificacion) ON DELETE CASCADE,
   ADD CONSTRAINT bitácora_2 FOREIGN KEY (ticket_id) REFERENCES tickets(id) ON DELETE CASCADE;
 

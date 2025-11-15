@@ -3,7 +3,7 @@ import { validationResult } from "express-validator";
 
 export const getCategorias = async (req, res) => {
   try {
-    let sql = 'SELECT * FROM categorías';
+    let sql = 'SELECT * FROM categorias';
     const [result] = await pool.query(sql);
     if (result.length > 0) {
       res.status(200).json(result);
@@ -27,7 +27,7 @@ export const getCategoriaId = async (req, res) => {
     }
 
     const { id } = req.params;
-    let sql = 'SELECT * FROM categorías WHERE id = ?';
+    let sql = 'SELECT * FROM categorias WHERE id = ?';
     const [result] = await pool.query(sql, [id]);
     if (result.length > 0) {
       res.status(200).json(result[0]);
@@ -51,7 +51,7 @@ export const registrarCategoria = async (req, res) => {
     }
 
     const { nombre, descripcion } = req.body;
-    let sql = `INSERT INTO categorías(nombre,descripción) values (?,?)`;
+    let sql = `INSERT INTO categorias(nombre,descripcion) values (?,?)`;
     const [rows] = await pool.query(sql, [nombre, descripcion]);
     if (rows.affectedRows > 0) {
       res.status(200).json({ 'status': 200, 'msg': 'Se registró con éxito el categoría.' });
@@ -75,7 +75,7 @@ export const borrarCategoria = async (req, res) => {
     }
 
     const {id} = req.params;
-    let sql = 'DELETE FROM categorías WHERE id=?';
+    let sql = 'DELETE FROM categorias WHERE id=?';
     const [result] = await pool.query(sql, [id]);
     if (result.affectedRows > 0) {
       res.status(200).json({ 'status': 200, msg: 'Se eliminó el categoría.' });
@@ -100,7 +100,7 @@ export const actualizarCategoria = async (req, res) => {
     const { id } = req.params;
     const { nombre, descripcion } = req.body;
     let sql, params;
-    sql = 'UPDATE categorías SET nombre=?, descripción=? WHERE id = ?';
+    sql = 'UPDATE categorias SET nombre=?, descripcion=? WHERE id = ?';
     params = [nombre, descripcion, id];
     const [result] = await pool.query(sql, params);
 

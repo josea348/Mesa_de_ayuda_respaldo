@@ -3,7 +3,7 @@ import { validationResult } from "express-validator";
 
 export const getBitacora = async (req, res) => {
   try {
-    let sql = 'SELECT * FROM bitácora';
+    let sql = 'SELECT * FROM bitacora';
     const [result] = await pool.query(sql);
     if (result.length > 0)
       res.status(200).json(result);
@@ -17,7 +17,7 @@ export const getBitacora = async (req, res) => {
 export const getBitacoraId = async (req, res) => {
   try {
     const { id } = req.params;
-    let sql = 'SELECT * FROM bitácora WHERE id=?';
+    let sql = 'SELECT * FROM bitacora WHERE id=?';
     const [result] = await pool.query(sql, [id]);
     if (result.length > 0)
       res.status(200).json(result[0]);
@@ -30,9 +30,9 @@ export const getBitacoraId = async (req, res) => {
 
 export const registrarBitacora = async (req, res) => {
   try {
-    const { acción, detalles, usuario_id, ticket_id } = req.body;
-    let sql = 'INSERT INTO bitácora(acción, detalles, usuario_id, ticket_id) VALUES (?,?,?,?)';
-    const [rows] = await pool.query(sql, [acción, detalles, usuario_id, ticket_id]);
+    const { accion, detalles, usuario_id, ticket_id } = req.body;
+    let sql = 'INSERT INTO bitacora(accion, detalles, usuario_id, ticket_id) VALUES (?,?,?,?)';
+    const [rows] = await pool.query(sql, [accion, detalles, usuario_id, ticket_id]);
     if (rows.affectedRows > 0)
       res.status(200).json({ status: 200, msg: 'Registro en bitácora creado correctamente.' });
     else
@@ -45,7 +45,7 @@ export const registrarBitacora = async (req, res) => {
 export const borrarBitacora = async (req, res) => {
   try {
     const { id } = req.params;
-    let sql = 'DELETE FROM bitácora WHERE id=?';
+    let sql = 'DELETE FROM bitacora WHERE id=?';
     const [result] = await pool.query(sql, [id]);
     if (result.affectedRows > 0)
       res.status(200).json({ status: 200, msg: 'Registro de bitácora eliminado correctamente.' });
@@ -59,9 +59,9 @@ export const borrarBitacora = async (req, res) => {
 export const actualizarBitacora = async (req, res) => {
   try {
     const { id } = req.params;
-    const { acción, detalles } = req.body;
-    let sql = 'UPDATE bitácora SET acción=?, detalles=? WHERE id=?';
-    const [result] = await pool.query(sql, [acción, detalles, id]);
+    const { accion, detalles } = req.body;
+    let sql = 'UPDATE bitacora SET accion=?, detalles=? WHERE id=?';
+    const [result] = await pool.query(sql, [accion, detalles, id]);
     if (result.affectedRows > 0)
       res.status(200).json({ status: 200, msg: 'Registro de bitácora actualizado correctamente.' });
     else
