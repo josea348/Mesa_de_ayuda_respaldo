@@ -4,8 +4,8 @@ import { validarToken } from "../controllers/autentication.js";
 import { validarAmbiente, validarId } from "../validate/ambientes.js";
 const routerAmbientes = Router();
 
-routerAmbientes.get('/ambiente', getAmbiente);
-routerAmbientes.get('/ambienteJoin', getAmbienteJoin);
+routerAmbientes.get('/ambiente', validarToken, getAmbiente);
+routerAmbientes.get('/ambienteJoin', validarToken, getAmbienteJoin);
 routerAmbientes.get('/ambiente/:id', validarId, getAmbienteId);
 routerAmbientes.get('/ambienteJoin/:id', validarId, getAmbienteIdJoin);
 routerAmbientes.post('/ambiente', validarToken, validarAmbiente, registrarAmbiente);

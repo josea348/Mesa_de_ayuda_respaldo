@@ -5,7 +5,7 @@ import { validarTicket, validarId } from "../validate/tickets.js";
 
 const routerTickets = Router();
 
-routerTickets.get('/tickets', getTicket);
+routerTickets.get('/tickets', validarToken, getTicket);
 routerTickets.get('/ticketsJoin', validarToken, getTicketJoin);
 routerTickets.get('/tickets/:id', validarToken, validarId, getTicketId);
 routerTickets.get('/ticketsJoin/:id', validarToken, validarId, getTicketIdJoin);

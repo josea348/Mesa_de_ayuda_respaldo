@@ -4,7 +4,7 @@ import { validarToken } from "../controllers/autentication.js";
 import { validarCategoria, validarId } from "../validate/categorias.js";
 const routerCategoria = Router();
 
-routerCategoria.get('/Categoria', getCategorias);
+routerCategoria.get('/Categoria', validarToken, getCategorias);
 routerCategoria.get('/Categoria/:id', validarToken, validarId, getCategoriaId);
 routerCategoria.post('/Categoria', validarToken, validarCategoria, registrarCategoria);
 routerCategoria.delete('/Categoria/:id', validarToken, validarId, borrarCategoria);

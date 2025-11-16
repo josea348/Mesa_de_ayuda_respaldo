@@ -5,7 +5,7 @@ import { validarToken } from "../controllers/autentication.js";
 import { validarImagen } from "../validate/imagenes.js";
 const routerUsuario = Router();
 
-routerUsuario.get('/usuario', getUsers);
+routerUsuario.get('/usuario', validarToken, getUsers);
 routerUsuario.get('/usuario/:id', validarToken, validarId, getUserId);
 routerUsuario.post('/usuario', validarToken, cargarImagen, validarUsuario, validarImagen, registrarUsuario);
 routerUsuario.delete('/usuario/:id', validarToken, validarId, borrarUsuario);
