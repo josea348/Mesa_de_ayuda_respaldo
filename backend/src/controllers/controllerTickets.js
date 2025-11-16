@@ -21,7 +21,7 @@ export const getTicketJoin = async (req, res) => {
     let sql = `SELECT t.id, titulo, t.descripcion, c.nombre AS categoria, prioridad, estado, s.nombre AS solicitante, a.nombre AS asignado, t.fecha_registro, t.fecha_actualizacion FROM tickets AS t
               JOIN usuarios AS s ON s.identificacion = t.solicitante
               JOIN usuarios AS a ON a.identificacion = t.asignado
-              JOIN categorías AS c ON c.id = t.id`;
+              JOIN categorias AS c ON c.id = t.id`;
     const [result] = await pool.query(sql);
     if (result.length > 0) {
       res.status(200).json(result);
@@ -59,7 +59,7 @@ export const getTicketIdJoin = async (req, res) => {
     let sql = `SELECT t.id AS id, titulo, t.descripcion, c.nombre AS categoria, prioridad, estado, s.nombre AS solicitante, a.nombre AS asignado, t.fecha_registro AS fecha_registro, t.fecha_actualizacion AS fecha_actualizacion FROM tickets AS t
               JOIN usuarios AS s ON s.identificacion = t.solicitante
               JOIN usuarios AS a ON a.identificacion = t.asignado
-              JOIN categorías AS c ON c.id = t.id
+              JOIN categorias AS c ON c.id = t.id
               WHERE t.id = ?`;
     const [result] = await pool.query(sql, [id]);
     if (result.length > 0) res.status(200).json(result[0]);

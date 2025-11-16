@@ -15,6 +15,14 @@ export const getBitacora = async (req, res) => {
 }
 
 export const getBitacoraId = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      status: 400,
+      errors: errors.array()
+    });
+  }
+
   try {
     const { id } = req.params;
     let sql = 'SELECT * FROM bitacora WHERE id=?';
@@ -29,6 +37,14 @@ export const getBitacoraId = async (req, res) => {
 }
 
 export const registrarBitacora = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      status: 400,
+      errors: errors.array()
+    });
+  }
+
   try {
     const { accion, detalles, usuario_id, ticket_id } = req.body;
     let sql = 'INSERT INTO bitacora(accion, detalles, usuario_id, ticket_id) VALUES (?,?,?,?)';
@@ -43,6 +59,14 @@ export const registrarBitacora = async (req, res) => {
 }
 
 export const borrarBitacora = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      status: 400,
+      errors: errors.array()
+    });
+  }
+
   try {
     const { id } = req.params;
     let sql = 'DELETE FROM bitacora WHERE id=?';
@@ -57,6 +81,14 @@ export const borrarBitacora = async (req, res) => {
 }
 
 export const actualizarBitacora = async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({
+      status: 400,
+      errors: errors.array()
+    });
+  }
+
   try {
     const { id } = req.params;
     const { accion, detalles } = req.body;
