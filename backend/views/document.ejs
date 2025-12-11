@@ -1532,11 +1532,98 @@
   </table>
 
   <hr>
-  <h3>Buscar ambiente</h3>
+  <h3>Listar ambientes utilizando JOIN</h3>
   <table>
     <tr>
       <td>NÚMERO</td>
       <td>3</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Listar ambientes utilizando JOIN</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/ambienteJoin</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite listar los ambientes que estan registrados en la base de datos utilizando JOIN</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador, Operario, Instructor, Aprendiz</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        Body: [
+          {
+            "id": 2,
+            "nombre": "Ambiente y15",
+            "ubicacion": "portón de arriba.",
+            "capacidad": 30,
+            "estado": "Disponible",
+            "area_id": "Ambiental.",
+            "fecha_creacion": "2025-11-15T23:53:28.000Z"
+          },
+          {
+            "id": 1,
+            "nombre": "Ambiente y14.",
+            "ubicacion": "En las tics cerca de al ambiental por los lados del portón de arriba.",
+            "capacidad": 32,
+            "estado": "Disponible",
+            "area_id": "Tic.",
+            "fecha_creacion": "2025-11-15T23:50:44.000Z"
+          }
+        ]<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No hay ambientes registradas."
+        }<br />
+        Error:
+        status: 500,
+        body:{
+          status:500,msg:"Error: "+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
+  <h3>Buscar ambiente</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>4</td>
     </tr>
     <tr>
       <td>NOMBRE DE SERVICIO</td>
@@ -1608,11 +1695,87 @@
   </table>
 
   <hr>
+  <h3>Buscar ambiente utilizando JOIN</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Buscar ambiente utilizando JOIN</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/ambienteJoin/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite listar un ambiente que estan registrados en la base de datos utilizando JOIN</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador, Operario, Instructor, Aprendiz</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        Body: {
+          "id": 2,
+          "nombre": "Ambiente y15",
+          "ubicacion": "portón de arriba.",
+          "capacidad": 30,
+          "estado": "Disponible",
+          "area_id": "Ambiental.",
+          "fecha_creacion": "2025-11-15T23:53:28.000Z"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No se encontró ningún ambiente con ese ID "
+        }<br />
+        Error:
+        status: 500,
+        body:{
+          status:500,msg:"Error del servidor. "+e
+        }
+      </td>
+    </tr>
+  </table>
+
+  <hr>
   <h3>Eliminar ambientes</h3>
   <table>
     <tr>
       <td>NÚMERO</td>
-      <td>4</td>
+      <td>6</td>
     </tr>
     <tr>
       <td>NOMBRE DE SERVICIO</td>
@@ -1683,7 +1846,7 @@
   <table>
     <tr>
       <td>NÚMERO</td>
-      <td>6</td>
+      <td>7</td>
     </tr>
     <tr>
       <td>NOMBRE DE SERVICIO</td>
@@ -1748,5 +1911,99 @@
       </td>
     </tr>
   </table>
+
+  <hr>
+  <h3>Buscar ambiente por el area</h3>
+  <table>
+    <tr>
+      <td>NÚMERO</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>NOMBRE DE SERVICIO</td>
+      <td>Buscar ambiente por el area</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>/api/ambienteJoin/:id</td>
+    </tr>
+    <tr>
+      <td>DESCRIPCIÓN</td>
+      <td>Permite listar un ambiente que estan registrados en la base de datos por el id del area</td>
+    </tr>
+    <tr>
+      <td>VERBO HTTP</td>
+      <td>GET</td>
+    </tr>
+    <tr>
+      <td>HEADER</td>
+      <td>token: token</td>
+    </tr>
+    <tr>
+      <td>USUARIOS</td>
+      <td>Administrador, Operario, Instructor, Aprendiz</td>
+    </tr>
+    <tr>
+      <td>PETICIÓN BODY</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>REPUESTA JSON</td>
+      <td>
+        Correcto:
+        Status: 200
+        Body: [
+          {
+            "id": 1,
+            "nombre": "Ambiente y14.",
+            "ubicacion": "En las tics cerca de al ambiental por los lados del portón de arriba.",
+            "capacidad": 32,
+            "estado": "Disponible",
+            "area_id": "Tic.",
+            "fecha_creacion": "2025-11-15T23:50:44.000Z"
+          },
+          {
+            "id": 3,
+            "nombre": "Ambiente y16",
+            "ubicacion": "portón de arriba.",
+            "capacidad": 30,
+            "estado": "Disponible",
+            "area_id": "Tic.",
+            "fecha_creacion": "2025-11-27T14:25:54.000Z"
+          }
+        ]<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Se requiere el token"
+        }<br />
+        Incorrecto:
+        status: 400,
+        Status:{
+          "status": 400,
+          "message": "Token incorrecto"
+        }<br />
+        Incorrecto:
+        status: 404,
+        Status:{
+          status: 404,
+          msg: "No se encontró ningún ambiente con el area de ID "
+        }<br />
+        Error:
+        status: 500,
+        body:{
+          status:500,msg:"Error del servidor. "+e
+        }
+      </td>
+    </tr>
+  </table>
+
+
+
+  <br><br><hr>
+  <h2>Requerimiento 5. Documentación de equipos</h2>
+  <hr>
+  <h3>Registrar ambientes</h3>
 </body>
 </html>
