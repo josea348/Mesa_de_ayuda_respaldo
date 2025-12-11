@@ -5,7 +5,7 @@ import { validarEncuestaSatisfaccion, validarUpdateEncuestaSatisfaccion, validar
 
 const routerEncuestaSatisfaccion = Router();
 
-routerEncuestaSatisfaccion.get('/encuesta-satisfaccion', getEncuesta);
+routerEncuestaSatisfaccion.get('/encuesta-satisfaccion', validarToken, getEncuesta);
 routerEncuestaSatisfaccion.get('/encuesta-satisfaccionJoin', validarToken, getEncuestaJoin);
 routerEncuestaSatisfaccion.get('/encuesta-satisfaccion/:id', validarToken, validarId, getEncuestaId);
 routerEncuestaSatisfaccion.get('/encuesta-satisfaccionJoin/:id', validarToken, validarId, getEncuestaIdJoin);
@@ -14,7 +14,7 @@ routerEncuestaSatisfaccion.delete('/encuesta-satisfaccion/:id', validarToken, va
 routerEncuestaSatisfaccion.put('/encuesta-satisfaccion/:id', validarToken, validarUpdateEncuestaSatisfaccion, actualizarEncuesta);
 
 // Rutas adicionales
-routerEncuestaSatisfaccion.get('/encuestaSatisfaccionByUser/:id', validarId, getEncuestaByUser);
-routerEncuestaSatisfaccion.get('/encuestaSatisfaccionByTicket/:id', validarId, getEncuestaByTicket);
+routerEncuestaSatisfaccion.get('/encuestaSatisfaccionByUser/:id', validarToken, validarId, getEncuestaByUser);
+routerEncuestaSatisfaccion.get('/encuestaSatisfaccionByTicket/:id', validarToken, validarId, getEncuestaByTicket);
 
 export default routerEncuestaSatisfaccion;

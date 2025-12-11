@@ -14,6 +14,6 @@ routerComentarios.delete('/comentarios/:id', validarToken, validarId, borrarCome
 routerComentarios.put('/comentarios/:id', validarToken, validarUpdateComentario, actualizarComentario);
 
 // Rutas adicionales
-routerComentarios.get('/comentariosByTickets/:id', validarId, getComentarioIdByTikets);
+routerComentarios.get('/comentariosByTickets/:id', validarToken, validarId, getComentarioIdByTikets);
 
 export default routerComentarios;

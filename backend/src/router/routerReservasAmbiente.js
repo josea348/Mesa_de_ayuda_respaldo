@@ -5,10 +5,10 @@ import { validarReservaAmbiente, validarId } from "../validate/reservasAmbiente.
 
 const routerReservasAmbiente = Router();
 
-routerReservasAmbiente.get('/reservas-ambiente', getReservasAmbiente);
-routerReservasAmbiente.get('/reservas-ambienteJoin', getReservasAmbienteJoin);
-routerReservasAmbiente.get('/reservas-ambiente/:id', validarId, getReservaAmbienteId);
-routerReservasAmbiente.get('/reservas-ambienteJoin/:id', validarId, getReservaAmbienteJoinId);
+routerReservasAmbiente.get('/reservas-ambiente', validarToken, getReservasAmbiente);
+routerReservasAmbiente.get('/reservas-ambienteJoin', validarToken, getReservasAmbienteJoin);
+routerReservasAmbiente.get('/reservas-ambiente/:id', validarToken, validarId, getReservaAmbienteId);
+routerReservasAmbiente.get('/reservas-ambienteJoin/:id', validarToken, validarId, getReservaAmbienteJoinId);
 routerReservasAmbiente.post('/reservas-ambiente', validarToken, validarReservaAmbiente, registrarReservaAmbiente);
 routerReservasAmbiente.delete('/reservas-ambiente/:id', validarToken, validarId, borrarReservaAmbiente);
 routerReservasAmbiente.put('/reservas-ambiente/:id', validarToken, validarReservaAmbiente, actualizarReservaAmbiente);
