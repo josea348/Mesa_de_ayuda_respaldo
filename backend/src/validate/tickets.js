@@ -29,7 +29,7 @@ export const validarTicket = [
     .notEmpty().withMessage('El asignado es obligatorio')
     .isNumeric().withMessage('El asignado debe ser numérico'),
 ];
-
+// 3175195818
 export const validarId = [
   check('id')
     .notEmpty().withMessage('El ID es obligatorio')

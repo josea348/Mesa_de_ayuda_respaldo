@@ -122,7 +122,7 @@ CREATE TABLE archivos_adjuntos (
   id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   ticket_id int(11) NOT NULL,
   nombre_archivo varchar(100) NOT NULL,
-  ruta_archivo varchar(255) NOT NULL,
+  archivo varchar(255) NOT NULL,
   fecha_creacion timestamp NOT NULL DEFAULT current_timestamp()
 );
 

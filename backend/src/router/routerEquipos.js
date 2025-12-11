@@ -1,31 +1,33 @@
 import { Router } from 'express';
-import { check } from 'express-validator';
 import { 
-  getEquipos, 
-  getEquipoById, 
-  crearEquipo, 
-  actualizarEquipo, 
+  getEquipos,
+  getEquiposJoin,
+  getEquipoById,
+  getEquipoByIdJoin,
+  crearEquipo,
+  actualizarEquipo,
   eliminarEquipo,
   getEquiposByAmbiente,
-  getEquiposByTipo
+  getEquiposByTipo,
+  getEquiposByArea
 } from '../controllers/controllerEquipos.js';
-import { validarEquipo, validarActualizacionEquipo } from '../validate/equipos.js';
+import { validarToken } from "../controllers/autentication.js";
+import { validarEquipo, validarActualizacionEquipo, validarId, validarIdByAmbiente, validarTipo, validarIdByArea } from '../validate/equipos.js';
 
 const routerEquipos = Router();
 
 // Rutas para equipos
-routerEquipos.get('/equipo', getEquipos);
-routerEquipos.get('/equipo/:id', getEquipoById);
-routerEquipos.post('/equipo', validarEquipo, crearEquipo);
-routerEquipos.put('/equipo/:id', validarActualizacionEquipo, actualizarEquipo);
-routerEquipos.delete('/equipo/:id', eliminarEquipo);
+routerEquipos.get('/equipo', validarToken, getEquipos);
+routerEquipos.get('/equipoJoin', validarToken, getEquiposJoin);
+routerEquipos.get('/equipo/:id', validarToken, validarId, getEquipoById);
+routerEquipos.get('/equipoJoin/:id', validarToken, validarId, getEquipoByIdJoin);
+routerEquipos.post('/equipo', validarToken, validarEquipo, crearEquipo);
+routerEquipos.put('/equipo/:id', validarToken, validarActualizacionEquipo, actualizarEquipo);
+routerEquipos.delete('/equipo/:id', validarToken, validarId, eliminarEquipo);
 
 // Rutas adicionales para filtrar equipos
-routerEquipos.get('/ambiente/:id_ambiente', getEquiposByAmbiente);
-routerEquipos.get('/tipo/:tipo', getEquiposByTipo);
-
-/* routerEquipos.get('/categoria/:id_categoria', getEquiposByCategoria);
-routerEquipos.get('/area/:id_area', getEquiposByArea);
-routerEquipos.get('/ambiente/:id_ambiente', getEquiposByAmbiente); */
+routerEquipos.get('/equipoByAmbiente/:idAmbiente', validarToken, validarIdByAmbiente, getEquiposByAmbiente);
+routerEquipos.get('/equipoByTipo/:tipo', validarToken, validarTipo, getEquiposByTipo);
+routerEquipos.get('/equipoByArea/:idArea', validarToken, validarIdByArea, getEquiposByArea);
 
 export default routerEquipos;

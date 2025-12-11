@@ -1,19 +1,19 @@
 import { check } from "express-validator";
 
 export const validarReservaAmbiente = [
-  check('usuario_id')
+  check('usuarioId')
     .notEmpty().withMessage('El ID del usuario es obligatorio')
     .isNumeric().withMessage('El ID del usuario debe ser numérico'),
 
-  check('ambiente_id')
+  check('ambienteId')
     .notEmpty().withMessage('El ID del ambiente es obligatorio')
     .isNumeric().withMessage('El ID del ambiente debe ser numérico'),
 
-  check('fecha_inicio')
+  check('fechaInicio')
     .notEmpty().withMessage('La fecha de inicio es obligatoria')
     .isISO8601().withMessage('La fecha de inicio debe tener formato válido (YYYY-MM-DD)'),
 
-  check('fecha_fin')
+  check('fechaFin')
     .notEmpty().withMessage('La fecha de fin es obligatoria')
     .isISO8601().withMessage('La fecha de fin debe tener formato válido (YYYY-MM-DD)')
     .custom((value, { req }) => {

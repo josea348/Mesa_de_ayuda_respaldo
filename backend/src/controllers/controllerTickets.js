@@ -21,7 +21,7 @@ export const getTicketJoin = async (req, res) => {
     let sql = `SELECT t.id, titulo, t.descripcion, c.nombre AS categoria, prioridad, estado, s.nombre AS solicitante, a.nombre AS asignado, t.fecha_registro, t.fecha_actualizacion FROM tickets AS t
               JOIN usuarios AS s ON s.identificacion = t.solicitante
               JOIN usuarios AS a ON a.identificacion = t.asignado
-              JOIN categorias AS c ON c.id = t.id`;
+              JOIN categorias AS c ON c.id = t.categoria`;
     const [result] = await pool.query(sql);
     if (result.length > 0) {
       res.status(200).json(result);
@@ -56,10 +56,10 @@ export const getTicketIdJoin = async (req, res) => {
     if (!errors.isEmpty()) return res.status(400).json({ status: 400, errors: errors.array() });
 
     const { id } = req.params;
-    let sql = `SELECT t.id AS id, titulo, t.descripcion, c.nombre AS categoria, prioridad, estado, s.nombre AS solicitante, a.nombre AS asignado, t.fecha_registro AS fecha_registro, t.fecha_actualizacion AS fecha_actualizacion FROM tickets AS t
-              JOIN usuarios AS s ON s.identificacion = t.solicitante
-              JOIN usuarios AS a ON a.identificacion = t.asignado
-              JOIN categorias AS c ON c.id = t.id
+    let sql = `SELECT t.id AS id, titulo, t.descripcion, c.nombre AS categoria, prioridad, estado, s.nombre AS solicitante, a.nombre AS asignado, t.fecha_registro AS fecha_registro, t.fecha_actualizacion AS fecha_actualizacion FROM tickets t
+              JOIN usuarios s ON s.identificacion = t.solicitante
+              JOIN usuarios a ON a.identificacion = t.asignado
+              JOIN categorias c ON c.id = t.categoria
               WHERE t.id = ?`;
     const [result] = await pool.query(sql, [id]);
     if (result.length > 0) res.status(200).json(result[0]);
@@ -76,7 +76,7 @@ export const registrarTicket = async (req, res) => {
     if (!errors.isEmpty()) return res.status(400).json({ status: 400, errors: errors.array() });
 
     const { titulo, descripcion, categoria, prioridad, estado, solicitante, asignado } = req.body;
-    let sql = 'INSERT INTO tickets(titulo, descripcion, categoria, prioridad, estado, solicitante, asignado) VALUES (?,?,?,?,?,?)';
+    let sql = 'INSERT INTO tickets(titulo, descripcion, categoria, prioridad, estado, solicitante, asignado) VALUES (?,?,?,?,?,?,?)';
     const [rows] = await pool.query(sql, [titulo, descripcion, categoria, prioridad, estado, solicitante, asignado]);
     if (rows.affectedRows > 0)
       res.status(200).json({ status: 200, msg: 'Ticket registrado correctamente.' });

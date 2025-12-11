@@ -78,7 +78,7 @@ export const getAmbienteIdJoin = async (req, res) => {
     }
   } catch (e) {
     console.log('Error del sistema' + e);
-    res.status(500).json({ 'status': 500, msg: 'Error del servidor.' + e });
+    res.status(500).json({ 'status': 500, msg: 'Error del servidor. ' + e });
   }
 }
 
@@ -160,5 +160,32 @@ export const actualizarAmbiente = async (req, res) => {
   } catch (e) {
     console.log('Error del sistema' + e);
      res.status(500).json({ 'status': 500, msg: 'Error del servidor.' + e });
+  }
+}
+
+// Metodo adiccional
+export const getAmbienteByArea = async (req, res) => {
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        status: 400,
+        errors: errors.array()
+      });
+    }
+
+    const { id } = req.params;
+    let sql = `SELECT ambiente.id, ambiente.nombre, ubicacion, capacidad, estado, areas.nombre AS area_id, ambiente.fecha_creacion FROM ambiente
+              JOIN areas ON areas.id=ambiente.area_id
+              WHERE area_id = ?`;
+    const [result] = await pool.query(sql, [id]);
+    if (result.length > 0) {
+      res.status(200).json(result);
+    } else {
+      res.status(404).json({ 'status': 404, msg: `No se encontró ningún ambiente con el area de ID ${id}` });
+    }
+  } catch (e) {
+    console.log('Error del sistema' + e);
+    res.status(500).json({ 'status': 500, msg: 'Error del servidor. ' + e });
   }
 }

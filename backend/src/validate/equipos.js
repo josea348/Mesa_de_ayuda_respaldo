@@ -35,3 +35,27 @@ export const validarActualizacionEquipo = [
     .optional()
     .isInt({ min: 1 }).withMessage('El ambiente debe ser un número entero positivo')
 ];
+
+export const validarId = [
+  check('id')
+    .notEmpty().withMessage('El ID es obligatorio')
+    .isNumeric().withMessage('El ID debe ser numérico')
+];
+
+export const validarIdByAmbiente = [
+  check('idAmbiente')
+    .notEmpty().withMessage('El ID del ambiente es obligatorio')
+    .isNumeric().withMessage('El ID debe ser numérico')
+];
+
+export const validarTipo = [
+  check('tipo')
+    .notEmpty().withMessage('El tipo es obligatorio.')
+    .isLength().withMessage('El tipo debe ser caracteres.')
+];
+
+export const validarIdByArea = [
+  check('idArea')
+    .notEmpty().withMessage('El ID del area es obligatorio')
+    .isNumeric().withMessage('El ID debe ser numérico')
+];
