@@ -16,6 +16,7 @@ import routerNotificaReservaEquipo from './src/router/routerNotificaReservaEquip
 import routerEncuestaSatisfaccion from './src/router/routerEncuestaSatisfaccion.js';
 import routerBitacora from './src/router/routerBitacora.js';
 import routerComentarios from './src/router/routerComentarios.js';
+import routerArchivoAdjuntos from './src/router/routerArchivosAdjuntos.js';
 
 const servidor = express();
 
@@ -33,19 +34,7 @@ servidor.get('/documents',(req, res)=>{
 servidor.use(cors());
 
 servidor.use(autRouter);
-servidor.use('/api', routerUsuario);
-servidor.use('/api', routerCategoria);
-servidor.use('/api', routerAreas);
-servidor.use('/api', routerAmbientes);
-servidor.use('/api', routerEquipos);
-servidor.use('/api', routerTickets);
-servidor.use('/api', routerReservasAmbiente);
-servidor.use('/api', routerReservasEquipo);
-servidor.use('/api', routerNotificaReservaAmbiente);
-servidor.use('/api', routerNotificaReservaEquipo);
-servidor.use('/api', routerEncuestaSatisfaccion);
-servidor.use('/api', routerBitacora);
-servidor.use('/api', routerComentarios);
+servidor.use('/api', [routerUsuario, routerCategoria, routerAreas, routerAmbientes, routerEquipos, routerTickets, routerReservasAmbiente, routerReservasEquipo, routerNotificaReservaAmbiente, routerNotificaReservaEquipo, routerEncuestaSatisfaccion, routerBitacora, routerComentarios, routerArchivoAdjuntos]);
 
 servidor.listen(4001,()=>{
   console.log('servidor corriendo en el puerto 4001');
